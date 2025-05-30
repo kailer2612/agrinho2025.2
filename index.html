@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fazenda Gaia</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Montserrat+Alternates:wght@700&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background-color: #0a3b18;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    line-height: 1.5;
+  }
+
+  /* Container principal */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px 80px 20px;
+  }
+
+  /* Menu */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+  }
+
+  header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 400;
+    font-size: 18px;
+    color: white;
+  }
+
+  /* Ícone trigo - vou usar um svg inline */
+  header .logo svg {
+    width: 24px;
+    height: 24px;
+    fill: #9c7c32;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 24px;
+  }
+
+  nav ul li {
+    font-weight: 400;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+  }
+
+  nav ul li a:hover {
+    background-color: #146624;
+  }
+
+  nav ul li.active a {
+    background-color: #146624;
+  }
+
+  /* Primeira seção */
+  section#home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding-top: 40px;
+  }
+
+  section#home .texto {
+    flex: 1;
+    max-width: 480px;
+  }
+
+  section#home h1 {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 700;
+    font-size: 56px;
+    margin: 0 0 10px 0;
+    line-height: 1;
+  }
+
+  section#home h2 {
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0.4em;
+    margin: 0 0 30px 0;
+    font-weight: 400;
+  }
+
+  section#home p {
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 40px;
+    line-height: 1.4;
+  }
+
+  section#home button {
+    background-color: #146624;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    padding: 14px 40px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  section#home button:hover {
+    background-color: #0f4e28;
+  }
+
+  section#home .imagens {
+    display: flex;
+    gap: 20px;
+  }
+
+  section#home .imagens img {
+    border-radius: 14px;
+    border: 3px solid white;
+    object-fit: cover;
+  }
+
+  section#home .imagens img.small {
+    width: 220px;
+    height: 320px;
+  }
+
+  section#home .imagens img.large {
+    width: 380px;
+    height: 520px;
+  }
+
+  /* Folhas flutuantes - estilo simplificado */
+  .leaf {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .leaf1 { top: 300px; left: 100px; width: 120px; }
+  .leaf2 { top: 360px; left: 220px; width: 90px; }
+  .leaf3 { top: 420px; left: 180px; width: 60px; }
+  .leaf4 { top: 600px; left: 70px; width: 100px; }
+  .leaf5 { top: 650px; left: 200px; width: 80px; }
+
+  /* Segunda seção */
+  section#quem-somos {
+    display: flex;
+    gap: 60px;
+    padding: 40px 0 80px 0;
+    align-items: center;
+  }
+
+  section#quem-somos img {
+    width: 350px;
+    height: 460px;
+    border-radius: 20px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  section#quem-somos .texto {
+    max-width: 720px;
+  }
+
+  section#quem-somos h1 {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 700;
+    font-size: 52px;
+    margin-bottom: 30px;
+  }
+
+  section#quem-somos p {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 1em;
+  }
+
+  /* Terceira seção */
+  section#diferencial {
+    display: flex;
+    gap: 60px;
+    padding-bottom: 80px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  section#diferencial .texto {
+    max-width: 600px;
+    flex: 1;
+  }
+
+  section#diferencial h1 {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 700;
+    font-size: 52px;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+
+  section#diferencial p {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 1em;
+  }
+
+  section#diferencial img {
+    width: 400px;
+    height: 400px;
+    border-radius: 40px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  /* Responsividade */
+  @media (max-width: 1024px) {
+    section#home {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    section#home .imagens {
+      justify-content: center;
+      width: 100%;
+    }
+
+    section#home .imagens img.small,
+    section#home .imagens img.large {
+      width: 80vw;
+      max-width: 320px;
+      height: auto;
+      border-radius: 14px;
+    }
+
+    section#quem-somos,
+    section#diferencial {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    section#quem-somos img,
+    section#diferencial img {
+      width: 90vw;
+      max-width: 400px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    section#quem-somos .texto,
+    section#diferencial .texto {
+      max-width: 90vw;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo" aria-label="Logo Fazenda Gaia">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12 2L10 7H14L12 2Z M7 10L3 14L6 16L7 10Z M17 10L21 14L18 16L17 10Z M12 22L14 17H10L12 22Z M10 8L8 14L10 16L12 8L10 8Z" />
+    </svg>
+    GAIA
+  </div>
+  <nav>
+    <ul>
+      <li class="active"><a href="#quem-somos">sobre nós</a></li>
+      <li><a href="#produtos">produtos</a></li>
+      <li><a href="#servicos">serviços</a></li>
+      <li><a href="#eventos">eventos</a></li>
+      <li><a href="#contato">contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+
+  <!-- Seção 1 -->
+  <section id="home" aria-label="Home - Fazenda Gaia">
+    <div class="texto">
+      <h1>GAIA</h1>
+      <h2>FAZENDA SUSTENTÁVEL</h2>
+      <p>Na Fazenda Nossa Senhora Aparecida, acreditamos que é possível produzir com responsabilidade, respeitando a natureza e promovendo o bem-estar social. Nossa missão é integrar práticas agrícolas inovadoras com respeito ao meio ambiente e à comunidade.</p>
+      <button type="button">ver produtos</button>
+    </div>
+    <div class="imagens" aria-label="Imagens da Fazenda Gaia">
+      <img src="/mnt/data/1.png" alt="Mulher sorrindo segurando cesta de ovos e verduras" class="small" />
+      <img src="/mnt/data/2.png" alt="Interior de estufa com plantas" class="large" />
+    </div>
+  </section>
+
+  <!-- Seção 2 -->
+  <section id="quem-somos" aria-label="Quem somos">
+    <img src="/mnt/data/3.png" alt="Campo de trigo ao pôr do sol" />
+    <div class="texto">
+      <h1>Quem somos nós?</h1>
+      <p><strong>A Fazenda Gaia nasceu de um sonho simples, mas poderoso:</strong> viver em harmonia com a terra e oferecer ao mundo algo que vá além do alimento — uma experiência de conexão, cuidado e propósito. Fundada e gerida por uma família jovem, cheia de energia e amor pela natureza, Gaia é mais do que uma fazenda: é um lar construído com consciência, afeto e visão de futuro.</p>
+      <p><strong>Desde o início, escolhemos trilhar um caminho diferente.</strong> Nosso cultivo é agroecológico, livre de venenos, respeitando os ciclos naturais e buscando regenerar o solo, a água e a vida ao nosso redor. Produzimos hortaliças frescas, frutas da estação, ovos caipiras, compotas artesanais, pães naturais e outros produtos que carregam o sabor da terra e o cuidado de quem planta com o coração.</p>
+    </div>
+  </section>
+
+  <!-- Seção 3 -->
+  <section id="diferencial" aria-label="Nosso diferencial">
+    <h1>Qual nosso diferencial?</h1>
+    <div class="texto">
+      <p><strong>Na Fazenda Gaia, também oferecemos uma variedade de serviços:</strong> assinaturas de cestas orgânicas, oficinas de agroecologia, visitas guiadas, vivências educativas e consultoria para hortas sustentáveis. E como acreditamos no poder dos encontros, nosso espaço está aberto para retiros, aniversários no campo, eventos escolares e imersões na natureza — sempre com um toque especial de acolhimento e conexão.</p>
+
+      <p><strong>Somos uma empresa familiar, e essa essência está presente em tudo o que fazemos.</strong> Aqui, quem chega como cliente, sai como parte da família. Queremos que cada pessoa que pisa em Gaia sinta-se em casa, em paz, em contato com o que realmente importa.</p>
+
+      <p><strong>Seja bem-vindo à Fazenda Gaia — um espaço vivo, onde a terra floresce e as relações humanas também.</strong></p>
+    </div>
+    <img src="/mnt/data/4.png" alt="Campo verde com céu azul e nuvens" />
+  </section>
+
+</div>
+
+</body>
+</html>
